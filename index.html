@@ -4,6 +4,17 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shantanu Maskeri — Unity Engineer</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141418'/><text y='.85em' x='50%25' text-anchor='middle' font-size='70' font-family='Georgia,serif' font-style='italic' fill='%234EC9E8'>S</text></svg>">
+  <meta name="description" content="Shantanu Maskeri — Unity Software Engineer with 20+ years of experience building games, XR experiences, AR apps, and experiential activations. Indie to AAA. Based in Mumbai, India.">
+  <meta property="og:title" content="Shantanu Maskeri — Unity Engineer">
+  <meta property="og:description" content="20+ years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://shantanumaskeri.github.io">
+  <meta property="og:image" content="https://shantanumaskeri.github.io/og-image.jpg">
+  <!-- og:image — upload a 1200x630px image named og-image.jpg to your repo root -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shantanu Maskeri — Unity Engineer">
+  <meta name="twitter:description" content="20+ years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -115,7 +126,7 @@
     .detail-row:last-child { border-bottom: none; padding-bottom: 0; }
     .detail-label { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; }
     .detail-value { font-family: var(--font-display); font-size: 1.3rem; font-weight: 400; color: var(--text); }
-    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; width: 100%; padding-top: 0.75rem; text-align: left; }
+    .skills-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem 3rem; width: 100%; padding-top: 2rem; text-align: left; }
     .skill-group { }
     .skill-group-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 0.4rem; }
     .skill-group-items { font-family: var(--font-head); font-size: 0.95rem; color: var(--text-dim); line-height: 1.7; }
@@ -174,9 +185,9 @@
     #testimonials { text-align: center; }
     #testimonials .section-header { justify-content: center; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
-    .testimonial-card { background: var(--bg-2); border: 1px solid var(--rule); padding: 2.5rem; text-align: left; display: flex; flex-direction: column; gap: 2rem; }
+    .testimonial-card { background: var(--bg-2); border: 1px solid var(--rule); padding: 2.5rem; text-align: left; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
     .testimonial-quote-mark { display: none; }
-    .testimonial-text { font-family: var(--font-head); font-size: 1.15rem; font-weight: 300; font-style: normal; color: var(--text); line-height: 1.8; flex: 1; }
+    .testimonial-text { font-family: var(--font-head); font-size: 1.15rem; font-weight: 300; font-style: normal; color: var(--text); line-height: 1.8; }
     .testimonial-author { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
     .testimonial-name { font-family: var(--font-mono); font-size: 0.9rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.3rem; }
     .testimonial-role { font-family: var(--font-mono); font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; color: #E8C47A; }
@@ -230,7 +241,68 @@
       .nav-links a { font-size: 0.7rem; letter-spacing: 0.06em; }
       .featured-grid { grid-template-columns: 1fr; }
       .skills-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+      .mobile-nav { display: flex; }
     }
+
+    /* SCROLL HINT */
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; opacity: 0; animation: fadeUp 0.8s ease forwards 1.3s; pointer-events: none; }
+    .scroll-line { width: 1px; height: 44px; background: linear-gradient(to bottom, rgba(78,201,232,0.7), transparent); animation: scrollPulse 2s ease-in-out infinite; transform-origin: top; }
+    @keyframes scrollPulse { 0%, 100% { opacity: 0.8; transform: scaleY(1); } 50% { opacity: 0.2; transform: scaleY(0.5); } }
+
+    /* ACTIVE NAV */
+    .nav-links a.active { color: var(--accent); }
+
+    /* CLIENTS STRIP */
+    #clients { padding: 3.5rem 0; border-top: 1px solid var(--rule); text-align: center; overflow: hidden; }
+    .clients-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--text-dim); opacity: 0.4; display: block; margin-bottom: 1.75rem; }
+    .clients-track-wrap {
+      overflow: hidden;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%);
+    }
+    .clients-track {
+      display: flex;
+      animation: marquee 24s linear infinite;
+      will-change: transform;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .clients-track:hover { animation-play-state: paused; }
+    .clients-set {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 100vw;
+      flex-shrink: 0;
+    }
+    @keyframes marquee {
+      0%   { transform: translate3d(0, 0, 0); }
+      100% { transform: translate3d(-50%, 0, 0); }
+    }
+    .client-name { font-family: var(--font-head); font-size: clamp(1.2rem, 2vw, 1.75rem); font-weight: 300; color: var(--text-dim); opacity: 0.32; letter-spacing: 0.04em; white-space: nowrap; padding: 0 3.5rem; transition: opacity 0.3s; cursor: default; }
+    .client-name:hover { opacity: 0.78; }
+    .client-sep { font-family: var(--font-mono); color: var(--rule); font-size: 0.7rem; opacity: 0.45; white-space: nowrap; }
+
+    /* CONTACT INTRO */
+    .contact-intro { font-size: 0.9rem; font-weight: 400; color: var(--text-dim); opacity: 0.7; max-width: 500px; margin: 0 auto 4rem; line-height: 1.75; }
+
+    /* HAMBURGER */
+    .hamburger { display: none; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 6px; }
+    .hamburger span { display: block; width: 20px; height: 1px; background: var(--text-dim); transition: transform 0.3s ease, opacity 0.3s ease; }
+    .hamburger.open span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+    .hamburger.open span:nth-child(2) { opacity: 0; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
+
+    /* MOBILE NAV */
+    .mobile-nav { display: none; position: fixed; top: var(--nav-h); left: 0; right: 0; z-index: 98; background: rgba(12,12,18,0.97); backdrop-filter: blur(20px); border-bottom: 1px solid var(--rule); padding: 1.5rem 2rem; flex-direction: column; transform: translateY(-6px); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none; }
+    .mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
+    .mobile-nav a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--rule); display: block; transition: color 0.2s; }
+    .mobile-nav a:last-child { border-bottom: none; }
+    .mobile-nav a:hover, .mobile-nav a.active { color: var(--accent); }
+
   </style>
 </head>
 <body>
@@ -244,7 +316,15 @@
       <li><a href="#testimonials">Testimonials</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
+    <button class="hamburger" id="hamburger" aria-label="Toggle navigation"><span></span><span></span><span></span></button>
   </nav>
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#work">Work</a>
+    <a href="#testimonials">Testimonials</a>
+    <a href="#contact">Contact</a>
+  </div>
 
   <section id="hero">
     <div class="hero-bg"></div>
@@ -252,7 +332,8 @@
     <h1 class="hero-name"><em>Shantanu Maskeri</em></h1>
     <p class="hero-desc">Unity Software Engineer</p>
     <p class="hero-tagline">Indie to AAA &nbsp;&middot;&nbsp; Mobile to XR &nbsp;&middot;&nbsp; Always production-ready</p>
-    <a href="https://www.youtube.com/playlist?list=PLTm1f-54FIoK4NDVieDxc3DWY9Z7ERSeC" target="_blank" class="hero-cta">View Portfolio</a>
+    <a href="#work" class="hero-cta">View Portfolio</a>
+    <div class="scroll-hint"><span class="scroll-line"></span></div>
   </section>
 
   <!-- Stats strip -->
@@ -271,8 +352,8 @@
         <div class="stat-label">Platforms Shipped</div>
       </div>
       <div class="stat-item reveal">
-        <div class="stat-number"><em>B2B</em></div>
-        <div class="stat-label">&amp; B2C Globally</div>
+        <div class="stat-number">30<em>+</em></div>
+        <div class="stat-label">Clients Served</div>
       </div>
     </div>
   </div>
@@ -405,7 +486,7 @@
 
     <div class="work-text reveal">
       <p>A collection of production work spanning mobile games, XR experiences, interactive installations, and experiential activations.</p>
-      <p>Clients include Ferrari, ENO, Rustomjee, and AAA game organizations across B2B and B2C markets globally.</p>
+      <p>Clients include Ferrari, GSK, Tata, Levis, FAB, Rustomjee, and others across B2B and B2C markets globally.</p>
       <div class="work-brands">
         <span class="brand-tag">Games</span>
         <span class="brand-tag">AR/VR</span>
@@ -416,6 +497,40 @@
       <a href="https://www.youtube.com/playlist?list=PLTm1f-54FIoK4NDVieDxc3DWY9Z7ERSeC" target="_blank" class="work-link">Watch Project Demos on YouTube</a>
     </div>
   </section>
+
+  <div id="clients">
+    <span class="clients-label reveal">Clients</span>
+    <div class="clients-track-wrap">
+      <div class="clients-track">
+        <div class="clients-set">
+        <span class="client-name">Ferrari</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">GSK</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Tata</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Levis</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">FAB</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Rustomjee</span>
+        </div>
+        <div class="clients-set" aria-hidden="true">
+        <span class="client-name">Ferrari</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">GSK</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Tata</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Levis</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">FAB</span>
+        <span class="client-sep">/</span>
+        <span class="client-name">Rustomjee</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <section id="testimonials">
     <div class="section-header reveal">
@@ -455,6 +570,7 @@
       <span class="section-num">05</span>
       <h2 class="section-title">Contact</h2>
     </div>
+    <p class="contact-intro reveal">Open to freelance engagements &mdash; mobile games, XR builds, AR apps, performance optimization, and architecture consulting.</p>
     <h3 class="contact-headline reveal">Have a project in mind?<br><br><em>Let's build something together.</em></h3>
     <div class="contact-details reveal">
       <span class="contact-phone">+91 9819773304</span>
@@ -486,6 +602,56 @@
       });
     }, { threshold: 0.1 });
     reveals.forEach(el => observer.observe(el));
+
+    // Active nav state
+    const sections = document.querySelectorAll('section[id]');
+    const navAs = document.querySelectorAll('.nav-links a, .mobile-nav a');
+    const sectionObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navAs.forEach(a => {
+            a.classList.toggle('active', a.getAttribute('href') === '#' + entry.target.id);
+          });
+        }
+      });
+    }, { rootMargin: '-35% 0px -60% 0px' });
+    sections.forEach(s => sectionObserver.observe(s));
+
+    // Hamburger menu
+    const hamburger = document.getElementById('hamburger');
+    const mobileNav = document.getElementById('mobileNav');
+    hamburger.addEventListener('click', () => {
+      hamburger.classList.toggle('open');
+      mobileNav.classList.toggle('open');
+    });
+    mobileNav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('open');
+        mobileNav.classList.remove('open');
+      });
+    });
+
+    // Marquee: measure exact set width after fonts load, inject pixel-perfect keyframes
+    function initMarquee() {
+      var set = document.querySelector('.clients-set');
+      var track = document.querySelector('.clients-track');
+      if (!set || !track) return;
+      var w = set.offsetWidth;
+      var el = document.getElementById('marquee-kf') || document.createElement('style');
+      el.id = 'marquee-kf';
+      el.textContent = '@keyframes marquee { from { transform: translate3d(0,0,0); } to { transform: translate3d(-' + w + 'px,0,0); } }';
+      if (!document.getElementById('marquee-kf')) document.head.appendChild(el);
+      track.style.animation = 'none';
+      track.offsetHeight;
+      track.style.animation = '';
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(initMarquee);
+    } else {
+      window.addEventListener('load', initMarquee);
+    }
+    window.addEventListener('resize', initMarquee);
+
   </script>
 </body>
 </html>
