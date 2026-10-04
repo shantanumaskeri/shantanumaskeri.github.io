@@ -185,7 +185,7 @@
     #testimonials { text-align: center; }
     #testimonials .section-header { justify-content: center; }
     .testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; max-width: 1100px; margin: 0 auto; }
-    .testimonial-card { background: var(--bg-2); border: 1px solid var(--rule); padding: 2.5rem; text-align: left; display: flex; flex-direction: column; justify-content: space-between; gap: 2rem; }
+    .testimonial-card { background: var(--bg-2); border: 1px solid var(--rule); padding: 2.5rem; text-align: left; display: grid; grid-template-rows: 1fr auto; gap: 2rem; }
     .testimonial-quote-mark { display: none; }
     .testimonial-text { font-family: var(--font-head); font-size: 1.15rem; font-weight: 300; font-style: normal; color: var(--text); line-height: 1.8; }
     .testimonial-author { border-top: 1px solid var(--rule); padding-top: 1.5rem; }
@@ -651,6 +651,17 @@
       window.addEventListener('load', initMarquee);
     }
     window.addEventListener('resize', initMarquee);
+
+    // Equalise testimonial author block heights so names align horizontally
+    function alignTestimonials() {
+      var authors = document.querySelectorAll('.testimonial-author');
+      authors.forEach(function(a) { a.style.height = 'auto'; });
+      var maxH = 0;
+      authors.forEach(function(a) { maxH = Math.max(maxH, a.offsetHeight); });
+      authors.forEach(function(a) { a.style.height = maxH + 'px'; });
+    }
+    document.fonts.ready.then(alignTestimonials);
+    window.addEventListener('resize', alignTestimonials);
 
   </script>
 </body>
