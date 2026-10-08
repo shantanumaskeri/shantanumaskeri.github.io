@@ -64,9 +64,12 @@
       display: flex; justify-content: space-between; align-items: center;
       padding: 0 4rem;
       border-bottom: 1px solid transparent;
+      background: rgba(12,12,18,0.5);
+      -webkit-transform: translateZ(0); transform: translateZ(0);
+      will-change: background;
       transition: border-color 0.4s, background 0.4s;
     }
-    nav.scrolled { background: rgba(20,20,24,0.92); backdrop-filter: blur(12px); border-color: var(--rule); }
+    nav.scrolled { background: rgba(12,12,18,0.96); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border-color: var(--rule); }
     .nav-logo { font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.15em; color: var(--text-dim); text-decoration: none; text-transform: uppercase; }
     .nav-links { display: none; gap: 2rem; list-style: none; }
     .nav-links a { font-family: var(--font-mono); font-size: 0.65rem; letter-spacing: 0.12em; color: var(--text-dim); text-decoration: none; text-transform: uppercase; transition: color 0.2s; }
