@@ -5,16 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Shantanu Maskeri — Unity Engineer</title>
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%23141418'/><text y='.85em' x='50%25' text-anchor='middle' font-size='70' font-family='Georgia,serif' font-style='italic' fill='%234EC9E8'>S</text></svg>">
-  <meta name="description" content="Shantanu Maskeri — Unity Software Engineer with 20+ years of experience building games, XR experiences, AR apps, and experiential activations. Indie to AAA. Based in Mumbai, India.">
+  <meta name="description" content="Shantanu Maskeri — Unity Software Engineer with 19 years of experience building games, XR experiences, AR apps, and experiential activations. Indie to AAA. Based in Mumbai, India.">
   <meta property="og:title" content="Shantanu Maskeri — Unity Engineer">
-  <meta property="og:description" content="20+ years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
+  <meta property="og:description" content="19 years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://shantanumaskeri.github.io">
   <meta property="og:image" content="https://shantanumaskeri.github.io/og-image.jpg">
   <!-- og:image — upload a 1200x630px image named og-image.jpg to your repo root -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Shantanu Maskeri — Unity Engineer">
-  <meta name="twitter:description" content="20+ years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
+  <meta name="twitter:description" content="19 years of engineering. Mobile to XR, Indie to AAA. Games, AR, VR, and experiential activations built in Unity.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Plus+Jakarta+Sans:wght@300;400;500&family=Space+Grotesk:wght@300;400;500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
@@ -198,7 +198,6 @@
     .contact-headline { font-family: var(--font-head); font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 300; line-height: 1.15; margin-bottom: 5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
     .contact-headline em { font-style: italic; color: var(--accent); }
     .contact-details { display: flex; flex-direction: column; align-items: center; gap: 0.75rem; margin-bottom: 4rem; }
-    .contact-phone { font-family: var(--font-mono); font-size: 0.85rem; letter-spacing: 0.1em; color: var(--text-dim); }
     .contact-email { display: inline-block; font-family: var(--font-head); font-size: clamp(1.2rem, 2.5vw, 2rem); font-weight: 400; color: var(--text); text-decoration: none; border-bottom: 1px solid var(--accent); padding-bottom: 0.3rem; transition: color 0.2s; }
     .contact-email:hover { color: var(--accent); }
     .social-links { display: flex; justify-content: center; gap: 3rem; }
@@ -288,19 +287,41 @@
     .contact-intro { font-size: 0.9rem; font-weight: 400; color: var(--text-dim); opacity: 0.7; max-width: 500px; margin: 0 auto 4rem; line-height: 1.75; }
 
     /* HAMBURGER */
-    .hamburger { display: flex; flex-direction: column; justify-content: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; }
-    .hamburger span { display: block; width: 22px; height: 1.5px; background: #ffffff; border-radius: 1px; transform-origin: center; transition: transform 0.45s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.25s ease, width 0.35s cubic-bezier(0.23, 1, 0.32, 1); }
-    .hamburger:hover span { background: var(--accent); }
-    .hamburger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
-    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; }
-    .hamburger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+    .hamburger { display: flex; flex-direction: column; justify-content: center; align-items: center; gap: 5px; background: none; border: none; cursor: pointer; padding: 8px; -webkit-appearance: none; appearance: none; outline: none; width: 38px; height: 38px; flex-shrink: 0; position: relative; z-index: 101; }
+    .hamburger span { display: block; width: 22px; height: 0; min-height: 0; border-top: 2px solid #ffffff; border-radius: 1px; transform-origin: center; flex-shrink: 0; -webkit-transform: translateZ(0); transform: translateZ(0); transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.22s ease, width 0.28s ease; }
+    /* Closing: outer lines un-cross first, then middle reappears */
+    .hamburger span:nth-child(2) { transition-delay: 0.16s; }
+    @media (hover: hover) and (pointer: fine) { .hamburger:hover span { border-top-color: var(--accent); } }
+    /* Opening: middle fades instantly, outer lines cross after 100ms */
+    .hamburger.open span { transition-delay: 0s; }
+    .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); transition-delay: 0.1s; }
+    .hamburger.open span:nth-child(2) { opacity: 0; width: 0; transition-delay: 0s; }
+    .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); transition-delay: 0.1s; }
 
     /* MOBILE NAV */
-    .mobile-nav { display: flex; position: fixed; top: var(--nav-h); right: 4rem; left: auto; width: 320px; z-index: 98; background: rgba(12,12,18,0.97); backdrop-filter: blur(20px); border: 1px solid var(--rule); border-top: none; padding: 1rem 1.5rem; flex-direction: column; transform: translateY(-6px); opacity: 0; transition: transform 0.3s ease, opacity 0.3s ease; pointer-events: none; }
-    .mobile-nav.open { transform: translateY(0); opacity: 1; pointer-events: all; }
-    .mobile-nav a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--rule); display: block; transition: color 0.2s; }
+    .mobile-nav { display: flex; position: fixed; top: var(--nav-h); right: 4rem; left: auto; width: 320px; z-index: 98; background: rgba(12,12,18,0.97); backdrop-filter: blur(20px); border: 1px solid var(--rule); border-top: none; padding: 1rem 1.5rem; flex-direction: column; transform: translateY(-12px) scaleY(0.95); transform-origin: top center; opacity: 0; transition: transform 0.38s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.28s ease; pointer-events: none; }
+    .mobile-nav.open { transform: translateY(0) scaleY(1); opacity: 1; pointer-events: all; }
+    /* Links default: invisible, shifted right — snaps back fast on close */
+    .mobile-nav a { font-family: var(--font-mono); font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); text-decoration: none; padding: 1rem 0; border-bottom: 1px solid var(--rule); display: block; opacity: 0; transform: translateX(12px); transition: opacity 0.18s ease, transform 0.18s ease, color 0.2s; }
+    /* Links open: stagger in from right */
+    .mobile-nav.open a { opacity: 1; transform: translateX(0); transition: opacity 0.32s ease, transform 0.38s cubic-bezier(0.23, 1, 0.32, 1), color 0.2s; }
+    .mobile-nav.open a:nth-child(1) { transition-delay: 0.06s; }
+    .mobile-nav.open a:nth-child(2) { transition-delay: 0.12s; }
+    .mobile-nav.open a:nth-child(3) { transition-delay: 0.17s; }
+    .mobile-nav.open a:nth-child(4) { transition-delay: 0.22s; }
+    .mobile-nav.open a:nth-child(5) { transition-delay: 0.27s; }
     .mobile-nav a:last-child { border-bottom: none; }
     .mobile-nav a:hover, .mobile-nav a.active { color: var(--accent); }
+
+
+    /* IMPACT ROW */
+    .impact-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-bottom: 4rem; border: 1px solid var(--rule); }
+    .impact-item { padding: 2rem 1.5rem; text-align: center; border-right: 1px solid var(--rule); }
+    .impact-item:last-child { border-right: none; }
+    .impact-num { display: block; font-family: var(--font-head); font-size: clamp(1.8rem, 3vw, 2.5rem); font-weight: 300; color: var(--text); line-height: 1; margin-bottom: 0.5rem; }
+    .impact-num em { color: var(--accent); font-style: normal; }
+    .impact-label { font-family: var(--font-mono); font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-dim); opacity: 0.6; }
+    @media (max-width: 600px) { .impact-row { grid-template-columns: 1fr 1fr; } .impact-item:nth-child(2) { border-right: none; } .impact-item:nth-child(1), .impact-item:nth-child(2) { border-bottom: 1px solid var(--rule); } }
 
   </style>
 </head>
@@ -339,7 +360,7 @@
   <div id="stats">
     <div class="stats-inner">
       <div class="stat-item reveal">
-        <div class="stat-number">20<em>+</em></div>
+        <div class="stat-number">19</div>
         <div class="stat-label">Years Engineering</div>
       </div>
       <div class="stat-item reveal">
@@ -347,8 +368,8 @@
         <div class="stat-label">Years in Unity</div>
       </div>
       <div class="stat-item reveal">
-        <div class="stat-number">5</div>
-        <div class="stat-label">Platforms Shipped</div>
+        <div class="stat-number">500<em>K+</em></div>
+        <div class="stat-label">Downloads</div>
       </div>
       <div class="stat-item reveal">
         <div class="stat-number"><em>Global</em></div>
@@ -415,6 +436,24 @@
     <div class="section-header reveal">
       <span class="section-num">02</span>
       <h2 class="section-title">Services</h2>
+    </div>
+    <div class="impact-row">
+      <div class="impact-item reveal">
+        <span class="impact-num">67<em>%</em></span>
+        <span class="impact-label">Faster Delivery</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="impact-num">45<em>%</em></span>
+        <span class="impact-label">Production Efficiency</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="impact-num">25<em>%</em></span>
+        <span class="impact-label">Conversion Increase</span>
+      </div>
+      <div class="impact-item reveal">
+        <span class="impact-num">30<em>%</em></span>
+        <span class="impact-label">Cost Reduction</span>
+      </div>
     </div>
     <div class="services-list">
       <div class="service-row reveal"><span class="service-index">01</span><span class="service-name">Games</span><span class="service-desc">End-to-end Unity development of mobile and PC games. Clean, scalable, production-ready code built for the full production cycle.</span></div>
@@ -572,7 +611,6 @@
     <p class="contact-intro reveal">Open to freelance engagements &mdash; mobile games, XR builds, AR apps, performance optimization, and architecture consulting.</p>
     <h3 class="contact-headline reveal">Have a project in mind?<br><br><em>Let's build something together.</em></h3>
     <div class="contact-details reveal">
-      <span class="contact-phone">+91 9819773304</span>
       <a href="mailto:shaan.mask@gmail.com" class="contact-email">shaan.mask@gmail.com</a>
     </div>
     <div class="social-links reveal">
